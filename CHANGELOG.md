@@ -1,8 +1,6 @@
 # Roo Code Changelog
 
-## 3.11.4
-
-### Patch Changes
+## [3.11.4]
 
 - fix: ensure consistent line endings in git fallback strategy
 
