@@ -483,7 +483,7 @@
 		"ts-jest": "^29.2.5",
 		"tsup": "^8.4.0",
 		"tsx": "^4.19.3",
-		"typescript": "^5.4.5",
+		"typescript": "^5.8.3",
 		"zod-to-ts": "^1.2.0"
 	},
 	"lint-staged": {
