@@ -11,11 +11,15 @@ jobs:
     if: github.head_ref != 'changeset-release/main'
     steps:
       - name: Send Discord Notification
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
           PAYLOAD=$(jq -n \
-            --arg title "${{ github.event.pull_request.title }}" \
-            --arg url "${{ github.event.pull_request.html_url }}" \
-            --arg author "${{ github.event.pull_request.user.login }}" \
+            --arg title "$PR_TITLE" \
+            --arg url "$PR_URL" \
+            --arg author "$PR_AUTHOR" \
             '{
               content: ("🚀 **New PR:** " + $title + "\n🔗 <" + $url + ">\n👤 **Author:** " + $author),
               thread_name: ($title + " by " + $author)
