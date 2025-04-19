@@ -74,7 +74,14 @@ export class OpenAiHandler extends BaseProvider implements SingleCompletionHandl
 		const isAzureAiInference = this._isAzureAiInference(modelUrl)
 		const urlHost = this._getUrlHost(modelUrl)
 		const deepseekReasoner = modelId.includes("deepseek-reasoner") || enabledR1Format
-		const ark = modelUrl.includes(".volces.com")
+		let ark = false
+		try {
+			const parsedUrl = new URL(modelUrl)
+			const host = parsedUrl.host
+			ark = host === "volces.com" || host.endsWith(".volces.com")
+		} catch (error) {
+			// Invalid URL, ark remains false
+		}
 
 		if (modelId.startsWith("o3-mini")) {
 			yield* this.handleO3FamilyMessage(modelId, systemPrompt, messages)
