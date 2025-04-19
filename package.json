@@ -409,7 +409,7 @@
 		"@mistralai/mistralai": "^1.6.0",
 		"@modelcontextprotocol/sdk": "^1.10.1",
 		"@types/clone-deep": "^4.0.4",
-		"@types/pdf-parse": "^1.1.4",
+		"@types/pdf-parse": "^1.1.5",
 		"@types/tmp": "^0.2.6",
 		"@types/turndown": "^5.0.5",
 		"@types/vscode": "^1.99.1",
